@@ -8,6 +8,8 @@ let socket;
 const Chat = ({ location })=>{
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
+    const [message, setMessage] = useState("");
+    const [messages, setMessages] = useState([]);
     const ENDPOINT = 'localhost:5000'
     //connecting to  the back end (A.)
     //passing end point to server
@@ -27,7 +29,9 @@ const Chat = ({ location })=>{
         // console.log("this is endpoint", ENDPOINT)
         // console.log("location.search...",location.search)
         socket.emit('join', { name, room }, ()=>{
-         
+        //here is the emitter for the join. EVERY EMITTER HAS A CORESSPONDING ON
+        //emit you're sending something. on your recieinvg something
+
          
         })
         //another socket method
@@ -54,6 +58,23 @@ const Chat = ({ location })=>{
         //now useEffect will only change when the socket changes
         //
   }, [ENDPOINT, location.search])
+
+  //this use effect is for handling messages
+  //page needs to render to show the messages being sent back and forth
+  //just like the other useEffect needs to render when new people are entering
+  //    socket.emit('message', {user:'admin', text:`${user.name}, Welcome to the party ${user.room}`})
+  //this is what message is sending.(emitting) below is the on function for what is getting
+  useEffect(()=>{
+    socket.on('message', (message)=>{
+    //we're going to use state to keep track of messages
+      setMessages([...messages,message])
+      //this is adding every new message sent my admin or anyone else to our messages array
+    })
+  },[messages])//this will run only when the messages array changes
+
+  //function for sending messages
+
+
     return (
         <h1>Chat</h1>
     )
