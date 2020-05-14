@@ -10,7 +10,7 @@ const Messages =({messages, name})=>{
     //the whole messages array of objects as well as the current name.
     //we pass the name so we can tell what is the user and what is the messages sent by others
     return(
-<ScrollToBottom>
+<ScrollToBottom className ='messages'>
 {messages.map((message, index)=> <div key ={index}><Message message ={message} name ={name} /></div>)}
 </ScrollToBottom>
     )}
