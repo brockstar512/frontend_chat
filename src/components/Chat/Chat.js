@@ -2,6 +2,9 @@ import React, {useState, useEffect} from 'react'
 import queryString from 'query-string'
 import io from 'socket.io-client'
 import './Chat.css'
+import InfoBar from '../InfoBar/InfoBar'
+import Input from '../Input/Input'
+
 
 let socket;
 
@@ -73,10 +76,25 @@ const Chat = ({ location })=>{
   },[messages])//this will run only when the messages array changes
 
   //function for sending messages
-
-
+  const sendMessage = (event) =>{
+    event.preventDefault()
+    //when a button is pressed the whole page or a form is submited so this prevents that 
+    //when this ffunction is activated
+    //we don't want the full webpage to refresh
+    //in the backend this listens to a message event
+    //then send it to the whole server
+    if(message){                        //this clears the message field
+      socket.emit('sendMessage', message, ()=>setMessage(''))
+    }
+  }
+  console.log('here is messages and message',messages, message)
     return (
-        <h1>Chat</h1>
+        <div className = "outerContainer">
+          <div className ="container">
+            <InfoBar room={room}/>
+          <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
+          </div>
+        </div>
     )
 }
 
