@@ -4,6 +4,7 @@ import './Join.css'
 import './button.scss'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
+import { white } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -13,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
         width: '25ch',
         color: "white",
       },
+
       
     },
   }));
@@ -29,11 +31,12 @@ return (
 <div className="joinContainer">
     <h1 className ="heading">Join!</h1>
     <form className={classes.root} noValidate autoComplete="off">
+      
     <div><TextField id="outlined-basic" variant="outlined"  label = 'Name'  type ='text' onChange={(event)=> setName(event.target.value)}/></div>
     <div><TextField id="outlined-basic" variant="outlined"   label = 'Room'  type ='text' onChange={(event)=> setRoom(event.target.value)}/></div>
     </form>
     <Link onClick = {event =>(!name || !room) ? event.preventDefault(): null} to={`/chat?name=${name}&room=${room}`}>
-    <button className='bttn-dark' type="submit">Sign In</button>
+    <button className='button' type="submit">Sign In</button>
     </Link>
 </div>
 
