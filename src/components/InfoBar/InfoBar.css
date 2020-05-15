@@ -1,8 +1,9 @@
+/* banner */
 .infoBar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #2979FF;
+    background: #3A015C;
     border-radius: 4px 4px 0 0;
     height: 60px;
     width: 100%;
@@ -26,3 +27,17 @@
   .onlineIcon {
     margin-right: 5%;
   }
+
+  .fontColorBanner{
+    text-align: center;
+    text-decoration: none;
+    background: -webkit-linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+  }
+
+  a{
+    margin:4%;
+  }
+
