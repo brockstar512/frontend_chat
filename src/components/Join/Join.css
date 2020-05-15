@@ -66,6 +66,12 @@ html, body {
     box-shadow: none;
     color: white;
     text-decoration: underline;
+    /* box-shadow: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%), */
+    /* background-color: #91bd09;
+    -webkit-animation-name: greenPulse;
+    -webkit-animation-duration: 2s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-box-shadow: 0 0 18px #91bd09; */
   }
 
   /* /// */
@@ -85,7 +91,7 @@ html, body {
   
   }
   
-  button:focus {
+  /* button:focus {
     outline: 0;
   }
 
@@ -94,4 +100,4 @@ html, body {
  .button:hover {
     background-color: blue;
     color:white;
- }
+ } */

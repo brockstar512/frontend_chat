@@ -4,7 +4,7 @@ import './Join.css'
 import './button.scss'
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-import { white } from '@material-ui/core/colors';
+// import { white } from '@material-ui/core/colors';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -12,10 +12,15 @@ const useStyles = makeStyles((theme) => ({
       '& > *': {
         margin: theme.spacing(1),
         width: '25ch',
-        color: "white",
-      },
+        // color: "white",
+        // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+        // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+        // color: 'white',
 
-      
+      },
+      welcome:{
+
+      },
     },
   }));
 
@@ -32,7 +37,7 @@ return (
     <h1 className ="heading">Join!</h1>
     <form className={classes.root} noValidate autoComplete="off">
       
-    <div><TextField id="outlined-basic" variant="outlined"  label = 'Name'  type ='text' onChange={(event)=> setName(event.target.value)}/></div>
+    <div><TextField id="outlined-basic" className={classes.welcome} variant="outlined"  label = 'Name'  type ='text' onChange={(event)=> setName(event.target.value)}/></div>
     <div><TextField id="outlined-basic" variant="outlined"   label = 'Room'  type ='text' onChange={(event)=> setRoom(event.target.value)}/></div>
     </form>
     <Link onClick = {event =>(!name || !room) ? event.preventDefault(): null} to={`/chat?name=${name}&room=${room}`}>
