@@ -19,7 +19,8 @@ const Chat = ({ location })=>{
     const [users, setUsers] = useState('');
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
-    const ENDPOINT = 'localhost:5000'
+    const ENDPOINT = 'https://messaging-app-brock.herokuapp.com/'
+    //'localhost:5000'
     //connecting to  the back end (A.)
     //passing end point to server
     
