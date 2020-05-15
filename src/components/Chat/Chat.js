@@ -7,18 +7,24 @@ import Input from '../Input/Input'
 import Messages from '../Messages/Messages'
 
 
+
 let socket;
+
+ //using context
+ export const UsersForList = React.createContext()
 
 const Chat = ({ location })=>{
     const [name, setName] = useState('');
     const [room, setRoom] = useState('');
+    const [users, setUsers] = useState('');
     const [message, setMessage] = useState("");
     const [messages, setMessages] = useState([]);
     const ENDPOINT = 'localhost:5000'
     //connecting to  the back end (A.)
     //passing end point to server
     
-    
+  
+
 //location is basically a url
   useEffect(()=>{
       //destructuring the object I am recieving from the url/ should 
@@ -71,10 +77,19 @@ const Chat = ({ location })=>{
   useEffect(()=>{
     socket.on('message', (message)=>{
     //we're going to use state to keep track of messages
-      setMessages([...messages,message])
+      setMessages(messages => [...messages,message])//need to brush up on this one
       //this is adding every new message sent my admin or anyone else to our messages array
     })
-  },[messages])//this will run only when the messages array changes
+
+    socket.on("roomData", ({ users }) => {
+      setUsers(users);
+      // console.log('here is what the string should be',users)***
+      //this is an object, this might be what I want to make context for both rooms and users
+      //at this point I don't know if my context is pulling this scpoed user thats an object or the state that is a string
+      
+    });
+  },[])//this will run only when the messages array changes if it had messages in it. now it will referesh... 
+  //i think only when something on the page changes. messages or users entering
 
   //function for sending messages
   const sendMessage = (event) =>{
@@ -88,11 +103,14 @@ const Chat = ({ location })=>{
       socket.emit('sendMessage', message, ()=>setMessage(''))
     }
   }
+  
   console.log('here is messages and message',messages, message)
     return (
         <div className = "outerContainer">
           <div className ="container">
-            <InfoBar room={room}/>
+            <UsersForList.Provider value ={users}>
+              <InfoBar room={room}/>
+            </UsersForList.Provider>
             <Messages messages ={messages} name ={name}/>
           <Input message={message} setMessage={setMessage} sendMessage={sendMessage}/>
           </div>
@@ -101,3 +119,10 @@ const Chat = ({ location })=>{
 }
 
 export default Chat
+
+
+
+//steps for recieving dats
+//-emit
+//useEffect with an socket.on
+//set state within the use Effects
