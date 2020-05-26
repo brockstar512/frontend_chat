@@ -65,7 +65,7 @@ html, body {
   button.button:hover {
     box-shadow: none;
     color: white;
-    text-decoration: underline;
+    /* text-decoration: underline; */
     /* box-shadow: linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%), */
     /* background-color: #91bd09;
     -webkit-animation-name: greenPulse;

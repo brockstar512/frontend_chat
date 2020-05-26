@@ -44,27 +44,3 @@ const Input = ({ setMessage, sendMessage, message })=>{
     
     )}
 export default Input
-
-
-// const Input = ({ setMessage, sendMessage, message })=>{
-//   const classes = useStyles();
-//   return (
-//   <form className = "form">
-//     <form className={classes.root} noValidate autoComplete="off">
-//       <TextField id="standard-basic"
-//       label = "Send a message"
-//       value={message} 
-//       onChange={(event)=>setMessage(event.target.value)}
-//       onKeyPress={event => event.key === 'Enter' ? sendMessage(event) : null}>
-//       </TextField> 
-//       <Button
-//           variant="contained"
-//           color="primary"
-//           className={classes.button}
-//           endIcon={<Icon>send</Icon>}
-//           onClick={e => sendMessage(e)}>
-//       Send</Button>
-//     </form>
-//   </form>
-  
-//   )}

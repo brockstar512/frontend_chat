@@ -1,10 +1,10 @@
 import React, {useState} from 'react'
 import {Link} from  'react-router-dom'
 import './Join.css'
-import './button.scss'
+
 import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
-// import { white } from '@material-ui/core/colors';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -12,11 +12,6 @@ const useStyles = makeStyles((theme) => ({
       '& > *': {
         margin: theme.spacing(1),
         width: '25ch',
-        // color: "white",
-        // background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-        // boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
-        // color: 'white',
-
       },
       welcome:{
 
@@ -51,44 +46,3 @@ return (
 
 }
 export default Join
-
-{/* <div class="flex dark">
-<a href="#0" className="bttn-dark">Continue</a>
-</div> */}
-
-//when user joins a connection needs to be fired up
-
-//when user leaves a disconnection function needs to be fired up
-
-//when do we use values
-//what is the value attribute for. is it for giving the submitted text a 
-//way to reference it with a vairable like name
-//on click vs on submit
-
-//allows you to click multiple locations 
-
-//we are passing data through query strings
-//when the two inputs are not typed in the button will be null and unclickable
-
-
-//we are using onclick for what below because its talking about the behavior of the button 
-
-//{event =>(!name || !room) ? event.preventDefault(): null}
-//to={`/chat?name=${name}&room=${room}`
-
-{/* <div className ='joinOuterContainer'>
-<div className="joinContainer">
-    <h1 className ="heading">Join!</h1>
-    <form className={classes.root} noValidate autoComplete="off">
-
-    <TextField id="outlined-basic" variant="outlined" />
-
-    <div><TextField id="outlined-basic" variant="outlined"  placeholder = 'Name'  type ='text' onChange={(event)=> setName(event.target.value)}/></div>
-    <div><TextField id="outlined-basic" variant="outlined"   placeholder = 'Room'  type ='text' onChange={(event)=> setRoom(event.target.value)}/></div>
-    </form>
-    <Link onClick = {event =>(!name || !room) ? event.preventDefault(): null} to={`/chat?name=${name}&room=${room}`}>
-    <button className='button mt-20' type="submit">Sign In</button>
-    </Link>
-</div>
-</div> */}
-

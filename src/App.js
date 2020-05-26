@@ -17,5 +17,3 @@ return(
 
 export default App;
 
-// expected an assignment or function call and instead saw an expression 
-//- forgot the return 

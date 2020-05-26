@@ -9,7 +9,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import onlineIcon from '../../icons/onlineIcon.png';
 
-// background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+
 const useStyles = makeStyles((theme) => ({
     button: {
       margin: theme.spacing(1),
@@ -60,7 +60,6 @@ const StyledMenu = withStyles({
 const UserListIcon =()=>{
     const [showFriends, setShowFriends] = useState(false);
     const userList = useContext(UsersForList)
-    console.log('this is the user list from the context that I pulled in ',userList)
 
     const classes = useStyles();
 
@@ -68,7 +67,6 @@ const UserListIcon =()=>{
     setShowFriends(!showFriends)
  }
 
-    //when in down conditional render
     const [anchorEl, setAnchorEl] = React.useState(null);
 
     const handleClick = (event) => {
@@ -114,7 +112,6 @@ return (
         }
     </ul>
 </div>
-          
         </StyledMenuItem>
       </StyledMenu>
     </div>
@@ -125,18 +122,3 @@ return (
 }
 
 export default UserListIcon
-
-// {showFriends &&
-//     <div className ="dropDown">
-//         <ul className ='userList'>
-//         {userList ?
-//             userList.map((obj, index)=>{
-//                     return (
-//                     <li key={index}>
-//                         {obj.name}
-//                         </li>  
-//                     )
-//                 }) : ""
-//             }
-//         </ul>
-//     </div>}
