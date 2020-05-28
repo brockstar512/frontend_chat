@@ -1,7 +1,5 @@
+/* #D8C99B; */
 
-/* div:last-of-type{
-margin-bottom:30px;
-} */
 .welcome{
     width:50%;
     position:relative;
@@ -32,8 +30,8 @@ margin-bottom:30px;
     border-bottom: 1px solid white;
     color:white;
 }
-/* :nth-last-of-type(n)	  input in white */
-/* #D8C99B; */
+
+
 .welcome label::after{
     content: "";
     position:absolute;
